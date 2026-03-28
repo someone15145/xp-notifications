@@ -30,9 +30,7 @@ Where:
 
 Example:
 
-```text
-Axes: 42.3% (1.27/3.56)
-```
+`{0}% ({2}/{3}) [+{1}]` -> `Axes: 42.3% (1.27/3.56) [+0.5]`
 
 ## Configuration
 
@@ -40,7 +38,7 @@ Axes: 42.3% (1.27/3.56)
 | ------------------------ | ---------------------------------- | --------------------- |
 | `ShowXPNotifications`    | Enable or disable XP notifications | `true`                |
 | `ShowRunXP`              | Show XP notifications for running  | `false`               |
-| `NotificationFormat`     | Custom notification format string  | `{0}% 			    |
+| `NotificationFormat`     | Custom notification format string  | `{0}%` 			    |
 | `NotificationTextSizeXP` | Notification text size             | `14`                  |
 
 ## Requirements

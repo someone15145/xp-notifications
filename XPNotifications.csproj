@@ -75,4 +75,22 @@
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <ModName>$(MSBuildProjectName)</ModName>
+    <ModVersion>1.0.1</ModVersion>
+    <PackageDir>$(OutputPath)$(ModName)-$(ModVersion)</PackageDir>
+    <ZipFileName>$(PackageDir).zip</ZipFileName>
+    <PluginDir>$(PackageDir)\BepInEx\plugins\$(ModName)</PluginDir>
+  </PropertyGroup>
+  <Target Name="AfterBuild">
+    <Message Text="Creating Thunderstore package in $(PackageDir)" Importance="high" />
+    <RemoveDir Directories="$(PackageDir)" Condition="Exists('$(PackageDir)')" />
+    <MakeDir Directories="$(PluginDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginDir)" />
+    <Copy SourceFiles="$(ProjectDir)README.md" DestinationFolder="$(PackageDir)" Condition="Exists('$(ProjectDir)README.md')" />
+    <Copy SourceFiles="$(ProjectDir)icon.png" DestinationFolder="$(PackageDir)" Condition="Exists('$(ProjectDir)icon.png')" />
+    <Copy SourceFiles="$(ProjectDir)manifest.json" DestinationFolder="$(PackageDir)" Condition="Exists('$(ProjectDir)manifest.json')" />
+    <ZipDirectory SourceDirectory="$(PackageDir)" DestinationFile="$(ZipFileName)" />
+	<RemoveDir Directories="$(PackageDir)" />
+  </Target>
 </Project>

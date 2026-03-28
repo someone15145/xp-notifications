@@ -13,7 +13,7 @@ namespace XPNotifications
         public const string MODNAME = "XPNotifications";
         public const string AUTHOR = "someone15145";
         public const string GUID = "xpnotifications";
-        public const string VERSION = "1.0.0";
+        public const string VERSION = "1.0.1";
 
         internal static ManualLogSource Log;
 
