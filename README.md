@@ -1,6 +1,6 @@
 # XP Notifications
 
-A simple Valheim mod that shows skill XP gains in the top-left corner.
+A simple Valheim mod that shows skill XP gains notifications.
 
 ## Features
 
@@ -18,15 +18,15 @@ A simple Valheim mod that shows skill XP gains in the top-left corner.
 ## Default Notification Format
 
 ```text
-{0}%
+{0}% ({2}/{3}) [+{1}]
 ````
 
 Where:
 
 * `{0}` = current percentage
-* `{1}` = XP gained from the action
-* `{2}` = current XP
-* `{3}` = XP required for the next level
+* `{1}` = XP gained this action
+* `{2}` = current accumulator XP
+* `{3}` = XP needed for next level
 
 Example:
 
@@ -34,12 +34,13 @@ Example:
 
 ## Configuration
 
-| Setting                  | Description                        | Default               |
-| ------------------------ | ---------------------------------- | --------------------- |
-| `ShowXPNotifications`    | Enable or disable XP notifications | `true`                |
-| `ShowRunXP`              | Show XP notifications for running  | `false`               |
-| `NotificationFormat`     | Custom notification format string  | `{0}%` 			    |
-| `NotificationTextSizeXP` | Notification text size             | `14`                  |
+| Setting                  | Description                              | Default                |
+| ------------------------ | ---------------------------------------- | ---------------------- |
+| `ShowXPNotifications`    | Enable or disable all XP notifications   | `true`                 |
+| `ShowRunXP`              | Show notifications for the Running skill | `false`                |
+| `NotificationFormat`     | Notification format string               | `{0}% ({2}/{3}) [+{1}]`|
+| `NotificationTextSizeXP` | Text size of the notification            | `14`                   |
+| `NotificationPosition`   | Where to show the notification           | `TopLeft`              |
 
 ## Requirements
 
