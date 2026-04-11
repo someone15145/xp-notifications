@@ -1,57 +1,44 @@
 # XP Notifications
 
-A simple Valheim mod that shows skill XP gains notifications.
+Valheim mod that tracks skill XP gains in real-time.
 
 ## Features
+- **Instant Feedback:** Notifications for every skill XP gain.
+- **Highly Customizable:** Change text size, position, and format.
+- **Smart Throttling:** Optional mode for the Running skill to avoid spam.
+- **Placeholders:** Display percent, gained XP, total XP, and current level.
 
-- Shows notifications for every skill XP gain
-- Customizable notification text
-- Displays:
-  - Current progress percent
-  - XP gained from the action
-  - Current XP
-  - XP required for the next level
-- Optional toggle for running skill XP
-- Adjustable text size
-- Full support for :contentReference[oaicite:0]{index=0}
+## Notification Format
+Custom string format using the following placeholders:
+- `{0}`: Progress % | `{1}`: Gained XP | `{2}`: Current XP | `{3}`: Next Level XP | `{4}`: Skill Level
 
-## Default Notification Format
-
-```text
-{0}% ({2}/{3}) [+{1}]
-````
-
-Where:
-
-* `{0}` = current percentage
-* `{1}` = XP gained this action
-* `{2}` = current accumulator XP
-* `{3}` = XP needed for next level
-
-Example:
-
-`{0}% ({2}/{3}) [+{1}]` -> `Axes: 42.3% (1.27/3.56) [+0.5]`
+**Example:** `{0}% ({2}/{3}) [+{1}] Lv.{4}`  
+**Result:** `Axes: 42.3% (1.27/3.56) [+0.5] Lv.11`
 
 ## Configuration
 
-| Setting                  | Description                              | Default                |
-| ------------------------ | ---------------------------------------- | ---------------------- |
-| `ShowXPNotifications`    | Enable or disable all XP notifications   | `true`                 |
-| `ShowRunXP`              | Show notifications for the Running skill | `false`                |
-| `NotificationFormat`     | Notification format string               | `{0}% ({2}/{3}) [+{1}]`|
-| `NotificationTextSizeXP` | Text size of the notification            | `14`                   |
-| `NotificationPosition`   | Where to show the notification           | `TopLeft`              |
-
-## Requirements
-
-* BepInEx
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| `ShowXPNotifications` | Toggle all notifications | `true` |
+| `NotificationFormat` | Text template (see above) | `{0}% ({2}/{3}) [+{1}] Lv.{4}` |
+| `NotificationPosition` | `TopLeft`, `Center` | `TopLeft` |
+| `NotificationTextSizeXP`| Font size | `14` |
+| `RunXPBehavior` | `Disabled`, `Normal`, `Throttling` | `Throttling` |
+| `RunXPTimeout` | Seconds between logs in Throttling mode | `2` |
 
 ## Installation
+1. Install [BepInEx Pack for Valheim](https://thunderstore.io).
+2. Place `XPNotifications.dll` into your `BepInEx/plugins` folder.
+3. Launch the game to generate the config file.
 
-1. Install BepInEx
-2. Place `XPNotifications.dll` into `BepInEx/plugins`
-3. Launch the game
+## Changelog
+- **1.0.2** (Current):
+  - Added **Throttling** mode for Running skill to reduce spam.
+  - Added `{4}` placeholder for current skill level.
+- **1.0.1**: 
+  - Fixed XP formula. 
+  - Added `NotificationPosition` options.
+- **1.0.0**: Initial release.
 
-## Credits
-
-Created by someone15145
+---
+*Created by someone15145*

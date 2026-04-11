@@ -1,8 +1,8 @@
 {
   "name": "XPNotifications",
-  "version_number": "1.0.1",
-  "website_url": "https://github.com/someone15145/xp-notifications",
-  "description": "Shows skill XP gains notifications.",
+  "version_number": "1.0.2",
+  "website_url": "",
+  "description": "Displays skill XP gain notifications in real-time.",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2333"
   ]
